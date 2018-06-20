@@ -1,0 +1,38 @@
+{
+  "name": "cesgi-node-mysql-query-builder",
+  "version": "0.0.0",
+  "description": "Quickly build MySQL queries",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/*-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byu-oit/cesgi-node-mysql-query-builder.git"
+  },
+  "keywords": [
+    "[",
+    "\"builder\"",
+    "\"sql\"",
+    "\"mysql\"",
+    "\"query\"",
+    "\"mysql-query-builder\"",
+    "\"cesgi\"",
+    "\"node\"",
+    "]"
+  ],
+  "author": "stuft2",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/byu-oit/cesgi-node-mysql-query-builder/issues"
+  },
+  "homepage": "https://github.com/byu-oit/cesgi-node-mysql-query-builder#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
