@@ -25,6 +25,15 @@ describe('MySQL Delete Statement Builder', function () {
     })
   })
 
+  describe('LIKE', function () {
+    it('should return the like clause and parameters', function () {
+      const {sql, params} = Sql.DELETE('persons').WHERE('name').LIKE('%John%')
+
+      expect(sql).to.equal('DELETE FROM persons WHERE name LIKE ?;')
+      expect(params.length).to.equal(1)
+    })
+  })
+
   describe('ORDER BY', function () {
     it('should return the where-condition clause and parameters', function () {
       const {sql, params} = Sql.DELETE('persons').WHERE({name: 'John'}).ORDERBY('id')

@@ -40,6 +40,15 @@ describe('MySQL Select Statement Builder', function () {
     })
   })
 
+  describe('LIKE', function () {
+    it('should return the like clause and parameters', function () {
+      const {sql, params} = Sql.SELECT('*').FROM('persons').WHERE('name').LIKE('%John%')
+
+      expect(sql).to.equal('SELECT * FROM persons WHERE name LIKE ?;')
+      expect(params.length).to.equal(1)
+    })
+  })
+
   describe('ORDER BY', function () {
     it('should return the where-condition clause and parameters', function () {
       const {sql, params} = Sql.SELECT('*').FROM('persons').WHERE({id: 1, name: 'John'}).ORDERBY('id')
