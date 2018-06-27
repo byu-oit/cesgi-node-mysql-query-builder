@@ -21,7 +21,7 @@ describe('MySQL Update Statement Builder', function () {
     it('should form the set clause and parameters', function () {
       const {sql, params} = Sql.UPDATE('persons').SET({ name: 'John Doe', age: 25})
 
-      expect(sql).to.equal('UPDATE persons SET (name = ?, age = ?);')
+      expect(sql).to.equal('UPDATE persons SET name = ?, age = ?;')
       expect(params.length).to.equal(2)
     })
   })
@@ -30,7 +30,7 @@ describe('MySQL Update Statement Builder', function () {
     it('should form the where-condition clause and parameters', function () {
       const {sql, params} = Sql.UPDATE('persons').SET({ name: 'John Doe', age: 25}).WHERE({name: 'John'})
 
-      expect(sql).to.equal('UPDATE persons SET (name = ?, age = ?) WHERE name = ?;')
+      expect(sql).to.equal('UPDATE persons SET name = ?, age = ? WHERE name = ?;')
       expect(params.length).to.equal(3)
     })
   })
