@@ -58,6 +58,24 @@ describe('MySQL Select Statement Builder', function () {
     })
   })
 
+  describe('ORDER BY DESC', function () {
+    it('should return the where-condition clause and parameters', function () {
+      const {sql, params} = Sql.SELECT('*').FROM('persons').WHERE({id: 1, name: 'John'}).ORDERBY('id').DESC().LIMIT(100)
+
+      expect(sql).to.equal('SELECT * FROM persons WHERE id = ? AND name = ? ORDER BY ? DESC LIMIT ?;')
+      expect(params.length).to.equal(4)
+    })
+  })
+
+  describe('ORDER BY ASC', function () {
+    it('should return the where-condition clause and parameters', function () {
+      const {sql, params} = Sql.SELECT('*').FROM('persons').WHERE({id: 1, name: 'John'}).ORDERBY('id').ASC().LIMIT(100)
+
+      expect(sql).to.equal('SELECT * FROM persons WHERE id = ? AND name = ? ORDER BY ? ASC LIMIT ?;')
+      expect(params.length).to.equal(4)
+    })
+  })
+
   describe('LIMIT', function () {
     it('should return the where-condition clause and parameters', function () {
       const {sql, params} = Sql.SELECT('*').FROM('persons').WHERE({id: 1, name: 'John'}).ORDERBY('id').LIMIT(100)
