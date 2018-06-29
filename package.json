@@ -1,6 +1,6 @@
 {
   "name": "cesgi-node-mysql-query-builder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Quickly build MySQL queries",
   "main": "index.js",
   "directories": {

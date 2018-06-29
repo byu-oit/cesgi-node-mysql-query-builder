@@ -17,6 +17,15 @@ describe('MySQL Insert Statement Builder', function () {
     })
   })
 
+  describe('INSERT IGNORE', function () {
+    it('should form the insert clause and parameters', function () {
+      const next = Sql.INSERT().IGNORE().INTO('persons')
+
+      expect(next.sql).to.equal('INSERT IGNORE INTO persons;')
+      expect(next.params.length).to.equal(0)
+    })
+  })
+
   describe('INSERT', function () {
     it('should form the insert-values clause and parameters', function () {
       const next = Sql.INSERT('persons').VALUES({ name: 'John', age: 25})
